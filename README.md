@@ -43,9 +43,29 @@ RETURN
         "Used By Type", [UsedByType],
         "Used By Table", [UsedByTable],
         "Used By Object", [UsedByObject],
-        "Formula", [Formula],
+        "Formula",
+            SUBSTITUTE(
+                SUBSTITUTE(
+                    SUBSTITUTE(
+                        [Formula],
+                        UNICHAR(13), " "
+                    ),
+                    UNICHAR(10), " "
+                ),
+                UNICHAR(9), " "
+            ),
         "Source Column", [SourceColumn],
-        "Column Formula", [ColumnFormula]
+        "Column Formula",
+            SUBSTITUTE(
+                SUBSTITUTE(
+                    SUBSTITUTE(
+                        [ColumnFormula],
+                        UNICHAR(13), " "
+                    ),
+                    UNICHAR(10), " "
+                ),
+                UNICHAR(9), " "
+            )
     )
 
 ORDER BY [Table], [Column], [Used By Object]
